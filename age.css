@@ -1,0 +1,158 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f4f4f4 25%, #e0e0e0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    animation: backgroundAnimation 5s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(135deg, #f4f4f4 25%, #e0e0e0 100%);
+    }
+    100% {
+        background: linear-gradient(135deg, #e0e0e0 25%, #f4f4f4 100%);
+    }
+}
+
+.container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transform: scale(0.95);
+    animation: containerAnimation 0.5s ease-out forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes containerAnimation {
+    to {
+        transform: scale(1);
+    }
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
+    animation: rotateBackground 10s linear infinite;
+}
+
+@keyframes rotateBackground {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #007bff;
+    font-size: 2.5em;
+    animation: fadeIn 1s ease-in;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 80%;
+    height: 3px;
+    background: #007bff;
+    transform: translateX(-50%);
+    animation: slideIn 0.5s ease-in-out 1s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 80%;
+        opacity: 1;
+    }
+}
+
+form {
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in;
+}
+
+input[type="date"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 300px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1em;
+}
+
+input[type="date"]:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 1em;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    animation: buttonPulse 2s infinite;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d80);
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5);
+    }
+}
+
+#result {
+    font-size: 1.2em;
+    color: #333;
+    animation: fadeIn 2s ease-in;
+}
